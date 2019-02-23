@@ -2,8 +2,15 @@ package generic.adriano.androidhelper.Helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 
 import generic.adriano.androidhelper.R;
+
+import static generic.adriano.androidhelper.Activities.MainActivity.lMainLayout;
+import static generic.adriano.androidhelper.Activities.MainActivity.views;
 
 public class Core {
 
@@ -30,4 +37,17 @@ public class Core {
         return sharedPreferences.contains(preferenceName);
     }
     //endregion
+
+    public static void ChangeView(View view) {
+        // Delete all views and add specified one
+        for (View v : views) {
+            lMainLayout.removeView(v);
+        }
+        try {
+            view.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            lMainLayout.addView(view);
+        } catch (Exception ex) {
+            Log.e("HLPR.CORE.CHANGEVIEW", ex.getMessage());
+        }
+    }
 }

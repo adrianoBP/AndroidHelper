@@ -2,8 +2,10 @@ package generic.adriano.androidhelper.Helpers;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -30,5 +32,25 @@ public class UI {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
+
+    // Open dialog box
+    public static void OpenDialogBox(String title, String message, Integer icon, Context context){
+        new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Function confirm
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Function cancel
+                    }
+                })
+                .setIcon(icon)
+                .show();
+    }
+
 
 }
