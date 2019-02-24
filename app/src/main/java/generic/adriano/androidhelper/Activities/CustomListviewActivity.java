@@ -1,36 +1,23 @@
 package generic.adriano.androidhelper.Activities;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import generic.adriano.androidhelper.Additions.CustomListviewElement;
 import generic.adriano.androidhelper.R;
-
-import static generic.adriano.androidhelper.Activities.MainActivity.mainToolbar;
 
 public class CustomListviewActivity extends AppCompatActivity {
 
@@ -51,7 +38,7 @@ public class CustomListviewActivity extends AppCompatActivity {
         classView = view;
         myElements = new ArrayList<>();
 
-        ((Activity)classContext).setTitle("CLVA");
+        ((Activity)classContext).setTitle("Custom ListView");
 
         // View elements initialization
         lvElements = classView.findViewById(R.id.lvCustomListview);
@@ -90,7 +77,7 @@ public class CustomListviewActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(final int i, View view, ViewGroup viewGroup) {
             view = ((Activity)classContext).getLayoutInflater().inflate(R.layout.layout_adapter_listview, null);
 
             final TextView tvText = view.findViewById(R.id.tvCLVtext);
@@ -109,6 +96,7 @@ public class CustomListviewActivity extends AppCompatActivity {
             bButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    myElements.get(i).myString = "";
                     tvText.setText("");
                 }
             });

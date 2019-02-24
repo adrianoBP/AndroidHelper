@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -16,8 +15,6 @@ import android.widget.Button;
 
 import com.google.zxing.Result;
 
-import java.util.List;
-
 import generic.adriano.androidhelper.R;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -28,7 +25,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
     // Class elements
     Context classContext;
     View classView;
-    private ZXingScannerView mScannerView;
+    ZXingScannerView mScannerView;
 
     // View elements declaration
     Button bScan, bFlash;

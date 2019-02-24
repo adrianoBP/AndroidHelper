@@ -11,16 +11,33 @@
             <item
                 android:id="@+id/menuOption1"
                 android:icon="@android:drawable/ic_menu_compass"
-                android:title="Add entry"
+                android:title="Sample1"
                 app:showAsAction="ifRoom"
                 />
             <item
                 android:id="@+id/menuOption2"
                 android:icon="@android:drawable/ic_menu_send"
-                android:title="Graph"
+                android:title="Sample2"
                 app:showAsAction="ifRoom"
                 />
-
+            <item
+                android:id="@+id/menuOptionScanner"
+                android:icon="@android:drawable/ic_menu_camera"
+                android:title="Scanner"
+                app:showAsAction="ifRoom"
+                />
+            <item
+                android:id="@+id/menuOptionListView"
+                android:icon="@android:drawable/ic_menu_sort_by_size"
+                android:title="Listview"
+                app:showAsAction="ifRoom"
+                />
+            <item
+                android:id="@+id/menuOptionGoogleLogin"
+                android:icon="@android:drawable/ic_dialog_info"
+                android:title="Google Login"
+                app:showAsAction="ifRoom"
+                />
         </menu>
 
     </item>

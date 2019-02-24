@@ -1,8 +1,7 @@
 package generic.adriano.androidhelper.Activities;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     View vSampleView1, vScannerView, vListview;
     public static LinearLayout lMainLayout;
     public static List<View> views;
-    public static Toolbar mainToolbar;
+    Toolbar mainToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +56,18 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menuOption2:
                 CreateBasicSnack("OPTION 2", 5000, Color.WHITE, this);
                 return true;
+            case R.id.menuOptionScanner:
+                new ScannerActivity(MainActivity.this, vScannerView);
+                ChangeView(vScannerView);
+                return true;
+            case R.id.menuOptionListView:
+                new CustomListviewActivity(MainActivity.this, vListview);
+                ChangeView(vListview);
+                return true;
+            case R.id.menuOptionGoogleLogin:
+                Intent googleLogin = new Intent(MainActivity.this, GoogleLogin.class);
+                startActivity(googleLogin);
+                return true;
             default:
                 return true;
         }
@@ -67,11 +78,6 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.default_menu, menu);
         return true;
-    }
-
-    public  void ChangeToolbarTitle(String title){
-        mainToolbar.setTitle("title");
-        setSupportActionBar(mainToolbar);
     }
 
 }
