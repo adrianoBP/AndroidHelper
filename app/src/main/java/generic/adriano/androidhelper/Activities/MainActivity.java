@@ -14,7 +14,7 @@ import static generic.adriano.androidhelper.Helpers.Core.ChangeView;
 
 public class MainActivity extends AppCompatActivity {
 
-    View vSampleView1;
+    View vSampleView1, vScannerView;
     public static LinearLayout lMainLayout;
     public static List<View> views;
 
@@ -25,13 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Views Init
         vSampleView1 = getLayoutInflater().inflate(R.layout.layout_sample_view_1, null);
-        views = Arrays.asList(vSampleView1);
+        vScannerView = getLayoutInflater().inflate(R.layout.layout_scanner, null);
+        views = Arrays.asList(vSampleView1, vScannerView);
 
         // Items Init
         lMainLayout = findViewById(R.id.lMainLayout);
 
         // Start main view
-        new SampleActivity1(this, vSampleView1);
-        ChangeView(vSampleView1);
+        new ScannerActivity(this, vScannerView);
+        ChangeView(vScannerView);
     }
 }
