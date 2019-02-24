@@ -38,6 +38,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         classContext = context;
         classView = view;
 
+        ((Activity)classContext).setTitle("Scanner");
 
         // Request permissions
         ActivityCompat.requestPermissions((Activity) classContext,
@@ -60,7 +61,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
                     mScannerView.setResultHandler(ScannerActivity.this);
                     mScannerView.startCamera();
                 }else{
-                    CreateBasicSnack("Access to the camera is required to use this application.", null, null, ScannerActivity.this);
+                    CreateBasicSnack("Access to the camera is required to use this application.", null, null, classContext);
                 }
             }
         });
@@ -92,7 +93,8 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         String result = rawResult.getText();
         String format = rawResult.getBarcodeFormat().toString();
 
-        Log.i("SCNR.HANDLE", result);
+        Log.i("SCNR.HANDLE.FORMAT", format);
+        CreateBasicSnack(result, null, null, classContext);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

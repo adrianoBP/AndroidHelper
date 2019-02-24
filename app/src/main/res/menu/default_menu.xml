@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/iAddTemp"
+        android:icon="@android:drawable/ic_menu_preferences"
+        app:showAsAction="always"
+        android:title="Notitle">
+        <menu>
+            <item
+                android:id="@+id/menuOption1"
+                android:icon="@android:drawable/ic_menu_compass"
+                android:title="Add entry"
+                app:showAsAction="ifRoom"
+                />
+            <item
+                android:id="@+id/menuOption2"
+                android:icon="@android:drawable/ic_menu_send"
+                android:title="Graph"
+                app:showAsAction="ifRoom"
+                />
+
+        </menu>
+
+    </item>
+
+</menu>
